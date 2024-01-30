@@ -4,10 +4,10 @@ import requests
 from bs4 import BeautifulSoup
 import streamlit as st
 
-# Fungsi untuk mendapatkan tweet dengan hashtag tertentu
+
 def get_tweets(hashtag, count=100):
-    auth = tweepy.OAuthHandler("API_KEY", "API_SECRET_KEY")
-    auth.set_access_token("ACCESS_TOKEN", "ACCESS_TOKEN_SECRET")
+    auth = tweepy.OAuthHandler("0OpolP0BqVrGtQLryIkwURD6R", "RlMuTPzhCpdmYIuL4A74wKb0FXZsRbi494MuNzCZm8ZvaNQ5UF")
+    auth.set_access_token("304900160-4f7XrVazNJ2RUlJWk1p9ZsJ5Y9xBpLYuhDOgAknq", "aRmc58zc7g1QY1WzInWYnac5F4sAyzyogaARI99c7STxn")
     api = tweepy.API(auth)
 
     tweets = tweepy.Cursor(api.search, q=hashtag, lang="en").items(count)
