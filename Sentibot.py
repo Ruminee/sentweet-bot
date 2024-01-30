@@ -3,7 +3,7 @@ from textblob import TextBlob
 import requests
 from bs4 import BeautifulSoup
 import streamlit as st
-
+import matplotlib.pyplot as plt
 
 def get_tweets(hashtag, count=100):
     auth = tweepy.OAuthHandler("0OpolP0BqVrGtQLryIkwURD6R", "RlMuTPzhCpdmYIuL4A74wKb0FXZsRbi494MuNzCZm8ZvaNQ5UF")
