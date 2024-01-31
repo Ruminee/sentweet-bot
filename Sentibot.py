@@ -12,7 +12,7 @@ def get_tweets(hashtag, count=100):
     auth.set_access_token("304900160-4f7XrVazNJ2RUlJWk1p9ZsJ5Y9xBpLYuhDOgAknq", "aRmc58zc7g1QY1WzInWYnac5F4sAyzyogaARI99c7STxn")
     api = tweepy.API(auth)
 
-    tweets = tweepy.Cursor(api.search, q=hashtag, lang="id").items(count)
+    tweets = tweepy.Cursor(api.search_tweets, q=hashtag, lang="id").items(count)
     return [(tweet.user.screen_name, tweet.text, tweet.created_at) for tweet in tweets]
 
 # Fungsi untuk melakukan analisis sentimen menggunakan TextBlob
