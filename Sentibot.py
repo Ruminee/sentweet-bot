@@ -6,7 +6,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle
 
-# Fungsi untuk mendapatkan tweet dengan hashtag tertentu
+# tweet auth
 def get_tweets(hashtag, count=100):
     auth = tweepy.OAuthHandler("0OpolP0BqVrGtQLryIkwURD6R", "RlMuTPzhCpdmYIuL4A74wKb0FXZsRbi494MuNzCZm8ZvaNQ5UF")
     auth.set_access_token("304900160-4f7XrVazNJ2RUlJWk1p9ZsJ5Y9xBpLYuhDOgAknq", "aRmc58zc7g1QY1WzInWYnac5F4sAyzyogaARI99c7STxn")
@@ -15,7 +15,7 @@ def get_tweets(hashtag, count=100):
     tweets = tweepy.Cursor(api.search_tweets, q=hashtag, lang="id").items(count)
     return [(tweet.user.screen_name, tweet.text, tweet.created_at) for tweet in tweets]
 
-# Fungsi untuk melakukan analisis sentimen menggunakan TextBlob
+# textblob function
 def analyze_sentiment(text):
     analysis = TextBlob(text)
     polarity = analysis.sentiment.polarity
@@ -28,7 +28,7 @@ def analyze_sentiment(text):
     else:
         return f"Negatif ({polarity:.2f})"
 
-# Fungsi untuk membuat donut chart
+# donut chart
 def create_donut_chart(positive, neutral, negative):
     fig, ax = plt.subplots()
     width = 0.35
@@ -53,7 +53,7 @@ def create_donut_chart(positive, neutral, negative):
 
     return fig
 
-# Fungsi untuk main page 1 (analisis sentimen hashtag)
+# Analisis sentimen - page 1
 def main_page_1():
     st.title("Sentiment Analysis App")
 
@@ -87,7 +87,7 @@ def main_page_1():
         else:
             st.warning("Masukkan hashtag terlebih dahulu.")
 
-# Fungsi untuk main page 2 (survey analisis sentimen produk)
+# survey analisis sentimen produk - page 2
 def main_page_2():
     st.title("Product Sentiment Survey")
 
@@ -122,7 +122,7 @@ def main_page_2():
         else:
             st.warning("Masukkan URL produk terlebih dahulu.")
 
-# Aplikasi Streamlit dengan multiple pages
+# sreamlit app main page
 def main():
     st.sidebar.title("Navigation")
     pages = {
